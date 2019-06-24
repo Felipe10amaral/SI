@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Cinema</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/Style.css"/>
+	
+	<script
+  		src="https://code.jquery.com/jquery-2.1.4.min.js"
+  		integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw="
+  		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<header class="navbar navbar-inverse">
+  		<p class="titulo"> Cinema </p>
+	</header>
+	
+	<nav >
+		<ul class="nav nav-pills">
+        	<li role="presentation" class="active"><a th:href='@{/}'>Página Inicial</a></li>      
+        	<li role="presentation" ><a th:href='@{/film/novo}'>Cadastro de Filmes</a></li>
+        	<li role="presentation" ><a th:href='@{/film}'>Listar Filmes</a></li>
+      	</ul>
+    </nav>  <br><br>	
+	
+	<section layout:fragment="conteudo">
+		<p>Conteudo Principal</p>
+	</section>
+	<script  type="text/javascript"> src="/js/bootstrap.min.js"</script>
+</body>
+</html>	

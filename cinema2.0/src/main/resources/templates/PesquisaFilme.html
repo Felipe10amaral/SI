@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ layout:decorator=LayoutPadrao>
+<head>
+	<title>Pesquisa de Filmes</title>
+</head>
+<section layout:fragment="conteudo">
+	<header class="navbar navbar-inverse">
+  		<p class="titulo"> Pesquisa de Filmes em Cartaz </p>
+	</header>
+	
+	
+	
+	<div class="panel panel-default">
+  		
+		
+		<div class="panel-body">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th class="text-center col-md-1">#</th>
+						
+						<th class="text-center col-md-2">Nome</th>
+						<th class="text-right col-md-2">Gênero</th>
+						<th class="text-center col-md-2">Data de Lançamento</th>
+						<th class=" col-md-1"></th>
+						<th class=" col-md-1"></th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="filme : ${filmes}">
+						<td class="text-center" th:text="${filme.codigo}">1</td>
+						<td class="text-center" th:text="${filme.nome}"></td>
+						<td class="text-center" th:text="${filme.genero}"></td>
+						<td class="text-center" th:text="${{filme.data}}"></td>  <!--   aspas duplas usadas para definir o formato de data definido pelo sistema    th:href="@{/editarfilme/{idfilme}(idfilme=${filme.codigo})}  -->
+						<td class="text-center" ><a class="btn btn-link btn-xs" th:href="@{/film/alterar/} + ${filme.codigo}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+						<td><a th:href="@{/film/excluir/} + ${filme.codigo}" class="glyphicon glyphicon-trash"></a></td>
+						<td colspan="5" th:if="${#lists.isEmpty(filmes)}">Nenhum Filme Agendado</td>
+					</tr>	
+				</tbody>
+				
+			</table>
+		</div>	
+	</div>	
+	</section>
+</html>
